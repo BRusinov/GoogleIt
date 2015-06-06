@@ -2,132 +2,51 @@
 <html>
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-		<style>
-			#map-canvas{
-				width: 500px;
-				height: 400px;
-			}
-		</style>
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
-		<script>
-			var map;
-			var marker;
-			var infowindow = new google.maps.InfoWindow({
-				content: "default"
-			});
-			var btn1=document.getElementById('btn1');
-			var file_no=1;
-			var address = "";
-      		function initialize() {
-        		var mapCanvas = document.getElementById('map-canvas');
-        		var Sofia = new google.maps.LatLng(42.7000, 23.3333);
-        		var mapOptions = {
-				  center: Sofia,
-				  zoom: 15,
-				  mapTypeId: google.maps.MapTypeId.ROADMAP
-				}
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-				map = new google.maps.Map(mapCanvas, mapOptions)
-				google.maps.event.addListener(map, 'click', function(event) {
-					infowindow.close();
-					addMarker(event.latLng);
-					google.maps.event.addListener(marker, 'click', function() {
-						//alert(marker.getPosition().lat()+','+marker.getPosition().lng());
-						getReverseGeocodingData(marker.getPosition().lat(), marker.getPosition().lng())
-						infowindow.setContent(address);
-						infowindow.open(map,marker);
-					});
-				});
-		  	}
-		  	function getReverseGeocodingData(lat, lng) {
-				var latlng = new google.maps.LatLng(lat, lng);
-				// This is making the Geocode request
-				var geocoder = new google.maps.Geocoder();
-				geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-					if (status !== google.maps.GeocoderStatus.OK) {
-						alert(status);
-					}
-					// This is checking to see if the Geoeode Status is OK before proceeding
-					if (status == google.maps.GeocoderStatus.OK) {
-						//console.log(results);
-						address = (results[0].formatted_address);
-						document.getElementById('map_address').value = address;
-					}
-				});
-			}
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
 
-			function addMarker(location) {
-				if ( marker ) {
-					marker.setPosition(location);
-				} else {
-					marker = new google.maps.Marker({
-						position: location,
-						//title: getReverseGeocodingData(42.7000, 23.3333),
-						map: map
-					});
-				}
-				//document.getElementById('latitude').value = marker.lat();
-				//document.getElementById('longitude').value = marker.lng();
-				getReverseGeocodingData(marker.getPosition().lat(), marker.getPosition().lng());
-				marker.setVisible(true);
-			}
-			function clearMarker(){
-				infowindow.close();
-				marker.setVisible(false);
-			}
-			function addFile(){
-				if(file_no<5){
-					document.getElementById('files').innerHTML += '<input type="file" name="files">'
-					file_no++;
-				}else{
-					alert("maximum number of files: 5");
-				}
-			}
-		  google.maps.event.addDomListener(window, 'load', initialize);
-		</script>
-
-	</head>
-	<body>
-		<div id="map-canvas"></div> 
-		<button type="button" onclick="clearMarker()">Clear marker</button> <br>
-		<form action="http://www.gli.government.bg/do.action.php?module=irregularities&amp;action=add" method="post">
-			<h3>Формуляр за подаване на сигнал за нарушение на разпоредбите на трудовото законодателство и ЗДСл</h3>
-			Адрес
-			<input name="address" id="map_address" type="text" value=""> <br>
-			Име
-			<input name="fname" value="" type="text"><br>
-			Презиме
-			<input name="mname" value="" type="text"><br>
-			Фамилия
-			<input name="lname" value="" type="text"><br>
-			Населено място
-			<input name="city" value="" type="text"><br>
-			Пощенски код
-			<input name="postal_code" value="" type="text"><br>
-			Адрес
-			<textarea name="address"></textarea><br>
-			Телефон
-			<input name="phone" value="" type="text"><br>
-			E-mail
-			<input name="email" value="" type="email"><br>
-			Работодател (фирма), срещу когото е сигналът
-			<textarea name="employer"></textarea><br>
-			Населено място
-			<textarea name="employer_location" id="employer_location"></textarea><br>
-			Адрес на обекта, на който се извършва дейността
-			<textarea name="employer_address" id="employer_address"></textarea><br>
-			Булстат
-			<input name="bulstat" value="" type="text"><br>
-			Описание на нарушението
-			<textarea name="description"></textarea><br>
-			Конкретно искане
-			<textarea name="demands"></textarea><br>
-			Описаният проблем разглежда ли се (разглеждан ли е) от други държавни институции или съдебни органи? От кои?
-			<textarea name="institutions"></textarea><br><br>
-			Файл(сканирано копие на относими документи)
-			<input name="file" type="file"><br>
-			<input type="submit" value="Submit"><br>
-		</form>
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">	
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <span class="name">Start Bootstrap</span>
+                        <hr class="star-light">
+                    </div>
+                </div>
+            </div>
+        </div>
+	</header>
+   <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="#" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> Download Theme
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>	   	
 	</body>
 </html>
 
