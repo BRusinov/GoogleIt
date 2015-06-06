@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<form action="http://www.gli.government.bg/do.action.php?module=irregularities&action=add" method="post">
+	<p><%= @form.title %></p>
+	<p><%= @form.target_url %></p>
+	<% @form.fields.each do |field| %>
+		<% if field.field_type == 'textfield' %>
+			<span><%= field.name %></span>
+			<input type="text" name=<%= "#{field.name_attribute}" %> />
+		<% elsif field.field_type == 'textarea' %>
+			<span><%= field.name %></span>
+			<textarea></textarea>
+		<% end %>
+		<br />
+	<% end %>
+	<input type="submit" />
+</form>
+
 <%= link_to 'Edit', edit_form_path(@form) %> |
 <%= link_to 'Back', forms_path %>

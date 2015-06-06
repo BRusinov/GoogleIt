@@ -69,6 +69,6 @@ class FieldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_params
-      params[:field].permit(:name, :field_type, :required, :_destroy)
+      params[:field].permit(:name, :name_attribute, :field_type, :required, :_destroy)
     end
 end
