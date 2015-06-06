@@ -1,0 +1,13 @@
+<div class="nested-fields">
+	<div class="field">
+    <%= f.label :name %>
+ 	<%= f.text_field :name %>
+ 	<%= f.label 'TextField' %>
+ 	<%= f.radio_button 'field_type', 'textfield' %>
+ 	<%= f.label 'TextArea' %>
+ 	<%= f.radio_button 'field_type', 'textarea' %>
+ 	<%= f.label 'File' %>
+ 	<%= f.radio_button 'field_type', 'file' %>
+  	<%= link_to_remove_association 'Remove field', f %>
+	</div>
+</div>
