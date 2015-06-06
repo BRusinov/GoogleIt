@@ -3,6 +3,17 @@
 
 <head>
 
+    <title>Example of Bootstrap 3 Modals</title>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+<style type="text/css">
+    .bs-example{
+        margin: 20px;
+    }
+</style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +35,7 @@
 
 </head>
 
-<body id="page-top" class="index">
-
+<body>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -53,10 +63,11 @@
                         <a href="#about">Относно</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#login">Влез</a>
+                        <a href="#login" data-toggle="modal"
+                        onclick="document.body.style.paddingRight='0px'">Влез</a>
                     </li>                    
                     <li class="page-scroll">
-                        <a href="#register">Регистрирай се</a>
+                        <a href="#register" data-toggle="modal">Регистрирай се</a>
                     </li>                
                 </ul>
             </div>
@@ -189,6 +200,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -298,6 +310,136 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+
+
+    <!-- Button HTML (to Trigger Modal) -->
+    
+    <!-- Modal HTML -->
+    <div id="register" class="modal fade">
+        <div id="regModal" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Регистрация</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="APB" method="post">
+
+                         <div class="form-group required">
+                            <label>Email</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="uLogin" required>
+                                <label for="uLogin" class="input-group-addon glyphicon glyphicon-envelope"></label>
+                            </div>
+                        </div> 
+
+                        <div class="form-group required col-lg-4">
+                            <label>Име</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="uLogin" required>
+                            </div>
+                        </div> 
+
+                        <div class="form-group required col-lg-4">
+                            <label>Презиме</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="uLogin" required>
+                            </div>
+                        </div> 
+
+                        <div class="form-group required col-lg-4">
+                            <label>Фамилия</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="uLogin" required>
+                            </div>
+                        </div> 
+
+                        <div class="form-group required">
+                            <label>Парола</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="uPassword" required>
+                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
+                            </div> 
+                        </div> 
+                        <div class="form-group">
+                            <label>Повтори парола</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="uPassword" required>
+                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
+                            </div> 
+                        </div> 
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Запомни ме
+                            </label>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-alert"></span> Регистрирай</button>
+                        </div>
+
+                        <script>
+                                $('#regModal').on('hidden.bs.modal', function () {
+                                    document.body.style.paddingRight='0px';
+                                });
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div id="login" class="modal fade">
+        <div class="modal-dialog" id="logModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Вход</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="APB" method="post">
+
+                         <div class="form-group required">
+                            <label>Email</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="uLogin" required>
+                                <label for="uLogin" class="input-group-addon glyphicon glyphicon-envelope"></label>
+                            </div>
+                        </div> <!-- /.form-group -->
+
+                        <div class="form-group required">
+                            <label>Парола</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="uPassword" required>
+                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
+                            </div> <!-- /.input-group -->
+                        </div> <!-- /.form-group -->
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Запомни ме
+                            </label>
+                        </div> <!-- /.checkbox -->
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-alert"></span> Влез</button>
+                        </div>
+
+                        <script>
+                            $('#logModal').on('hidden.bs.modal', function () {
+                                document.body.style.paddingRight='0px';
+                            });
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>     
+
 
 </body>
 
