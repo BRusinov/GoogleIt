@@ -316,14 +316,13 @@
     
     <!-- Modal HTML -->
     <div id="register" class="modal fade">
-        <div class="modal-dialog">
+        <div id="regModal" class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Регистрация</h4>
                 </div>
                 <div class="modal-body">
-                    <!--
                     <form role="form" action="APB" method="post">
 
                          <div class="form-group required">
@@ -380,17 +379,20 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
                             <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-alert"></span> Регистрирай</button>
                         </div>
+
+                        <script>
+                                $('#regModal').on('hidden.bs.modal', function () {
+                                    document.body.style.paddingRight='0px';
+                                });
+                        </script>
                     </form>
-
-                -->
-
                 </div>
             </div>
         </div>
     </div> 
 
     <div id="login" class="modal fade">
-        <div id="myModal" class="modal-dialog">
+        <div class="modal-dialog" id="logModal">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -427,10 +429,10 @@
                         </div>
 
                         <script>
-                            $('#myModal').on('hidden.bs.modal', function () {
+                            $('#logModal').on('hidden.bs.modal', function () {
                                 document.body.style.paddingRight='0px';
                             });
-                            </script>
+                        </script>
                     </form>
                 </div>
             </div>
