@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <style>
+            #map-canvas{
+                width: 500px;
+                height: 400px;
+            }
+        </style>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    </head>
+
+    <body>
+        <div class="bs-example">
+    <!-- Button HTML (to Trigger Modal) -->
+    <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">Регистрация</a>
+    
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Регистрация</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="APB" method="post">
+
+                         <div class="form-group required">
+                            <label>Email</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="uLogin" required>
+                                <label for="uLogin" class="input-group-addon glyphicon glyphicon-envelope"></label>
+                            </div>
+                        </div> <!-- /.form-group -->
+
+                        <div class="form-group required">
+                            <label>Потребителско име</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="uLogin" required>
+                                <label for="uLogin" class="input-group-addon glyphicon glyphicon-user"></label>
+                            </div>
+                        </div> <!-- /.form-group -->
+
+                        <div class="form-group required">
+                            <label>Парола</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="uPassword" required>
+                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
+                            </div> <!-- /.input-group -->
+                        </div> <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label>Повтори парола</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="uPassword" required>
+                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
+                            </div> <!-- /.input-group -->
+                        </div> <!-- /.form-group -->
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Запомни ме
+                            </label>
+                        </div> <!-- /.checkbox -->
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-alert"></span> Регистрирай</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Example of Bootstrap 3 Modals</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<style type="text/css">
+    .bs-example{
+        margin: 20px;
+    }
+</style>
+</head>
+<body>
+
+</body>
+</html>                                                                             
