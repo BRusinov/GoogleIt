@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Form Fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @form_fields.each do |form_field| %>
+      <tr>
+        <td><%= link_to 'Show', form_field %></td>
+        <td><%= link_to 'Edit', edit_form_field_path(form_field) %></td>
+        <td><%= link_to 'Destroy', form_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Form field', new_form_field_path %>

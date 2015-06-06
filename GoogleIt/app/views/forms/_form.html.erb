@@ -1,0 +1,34 @@
+<%= form_for @form do |f| %>
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+      <% @form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :target_url %>
+    <%= f.text_field :target_url %>
+  </div>
+
+  <div class="field">
+  <%= f.fields_for :fields do |field| %>
+    <%= render 'field_fields', f: field %>
+  <% end %>
+  <%= link_to_add_association 'Add field', f, :fields %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
