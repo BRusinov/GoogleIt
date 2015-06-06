@@ -22,10 +22,12 @@
   </div>
 
   <div class="field">
-  <%= f.fields_for :fields do |field| %>
-    <%= render 'field_fields', f: field %>
-  <% end %>
-  <%= link_to_add_association 'Add field', f, :fields %>
+    <%= f.fields_for :fields do |field| %>
+      <%= render 'field_fields', f: field %>
+    <% end %>
+    <div class="field">
+      <%= link_to_add_association 'Add field', f, :fields %>
+    </div>
   </div>
 
   <div class="actions">

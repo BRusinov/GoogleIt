@@ -1,19 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <form action="http://www.gli.government.bg/do.action.php?module=irregularities&action=add" method="post">
-	<p><%= @form.title %></p>
-	<p><%= @form.target_url %></p>
-	<% @form.fields.each do |field| %>
-		<% if field.field_type == 'textfield' %>
-			<span><%= field.name %></span>
-			<input type="text" name=<%= "#{field.name_attribute}" %> />
-		<% elsif field.field_type == 'textarea' %>
-			<span><%= field.name %></span>
-			<textarea></textarea>
-		<% end %>
-		<br />
-	<% end %>
-	<input type="submit" />
+	<div class="container-fluid">
+	    <section class="container" style="margin-bottom: 20px;">
+			<div class="container-page">				
+				<div class="col-md-6">
+					<div class="form-group required">
+						<h3 class="page-heading"><%= @form.title %></h3>
+						<% @form.fields.each do |field| %>
+						<div class="col-md-6">
+							<% if field.field_type == 'textfield' %>
+								<% if field.name_attribute == 'captcha' %>
+										<img src="http://www.gli.government.bg/captcha/server.php?v=603ba83bba10e1f3f61eda01589e6bcc" width="120" height="30" alt="CAPTCHA">									
+								<% end %>
+								<label><%= field.name %></label>
+								<% if field.name_attribute == 'address' %>
+									<input type="text" class="form-control" name=<%= "#{field.name_attribute}" %> required="required" id="map_address ">
+								<% else %>
+									<input type="text" class="form-control" name=<%= "#{field.name_attribute}" %> required="required" />
+								<% end %>
+
+							<% elsif field.field_type == 'textarea' %>
+								<label><%= field.name %></label>
+								<span class="glyphicon glyphicon-asterisk"></span>
+								<% if field.name_attribute == 'address' %>
+									<textarea class="form-control" rows="5" id="map_address" name=<%= "#{field.name_attribute}" %> ></textarea>
+								<% else %>
+									<textarea class="form-control" rows="5" name=<%= "#{field.name_attribute}" %> ></textarea>
+								<% end %>
+							<% elsif field.field_type == 'file' %>
+								<input type="file" name=<%= "#{field.name_attribute}" %> />
+							<% end %>
+						</div>
+						<% end %>
+						<input type="submit" />
+					</div>
+				</div>			
+				<div class="col-md-5">
+					<div id="map-canvas" style="margin-top: 10%;"></div> 
+					<button type="button" onclick="clearMarker()">Clear marker</button> <br>
+				</div>	
+			</div>
+			</div>
+		</section>
+	</div>
 </form>
 
 <%= link_to 'Edit', edit_form_path(@form) %> |

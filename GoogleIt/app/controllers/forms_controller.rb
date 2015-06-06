@@ -25,7 +25,6 @@ class FormsController < ApplicationController
   # POST /forms.json
   def create
     @form = Form.new(form_params)
-    p @form
 
     form_params["fields_attributes"].each do |k,v|
         field = Field.create(name: v["name"], field_type: v["field_type"], required: false)
@@ -48,12 +47,22 @@ class FormsController < ApplicationController
   # PATCH/PUT /forms/1
   # PATCH/PUT /forms/1.json
   def update
+    @form.destroy
+    @form = Form.new(form_params)
+
+    form_params["fields_attributes"].each do |k,v|
+        field = Field.create(name: v["name"], field_type: v["field_type"], required: false)
+        p field
+        thing = FormField.new(form: @form, field: field)
+        # @form.form_fields.create(field_id: field.id) #<< field #create(field_id: field.id)
+    end
+
     respond_to do |format|
-      if @form.update(form_params)
+      if @form.save
         format.html { redirect_to @form, notice: 'Form was successfully updated.' }
-        format.json { render :show, status: :ok, location: @form }
+        format.json { render :show, status: :created, location: @form }
       else
-        format.html { render :edit }
+        format.html { render :new }
         format.json { render json: @form.errors, status: :unprocessable_entity }
       end
     end
