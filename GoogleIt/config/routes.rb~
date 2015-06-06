@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :fields
   resources :forms
 
-  root 'forms#home'
+  root 'forms#index'
 
 end
