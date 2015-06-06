@@ -11,19 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606091905) do
+ActiveRecord::Schema.define(version: 20150606114915) do
 
   create_table "fields", force: :cascade do |t|
     t.string   "name"
     t.string   "field_type"
     t.boolean  "required"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "name_attribute"
   end
 
   create_table "form_fields", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "form_id"
+    t.integer  "field_id"
   end
 
   create_table "forms", force: :cascade do |t|

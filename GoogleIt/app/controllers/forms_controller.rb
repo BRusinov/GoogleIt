@@ -25,9 +25,14 @@ class FormsController < ApplicationController
   # POST /forms.json
   def create
     @form = Form.new(form_params)
-    # @form = Form.create(title: params[:title], )
+    p @form
 
-    # Post.create(:content => "A new post")
+    form_params["fields_attributes"].each do |k,v|
+        field = Field.create(name: v["name"], field_type: v["field_type"], required: false)
+        p field
+        thing = FormField.new(form: @form, field: field)
+        # @form.form_fields.create(field_id: field.id) #<< field #create(field_id: field.id)
+    end
 
     respond_to do |format|
       if @form.save
@@ -72,6 +77,6 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:title, :target_url, fields_attributes: [:name, :field_type, :required, :_destroy])
+      params.require(:form).permit(:title, :target_url, fields_attributes: [:name, :name_attribute, :field_type, :required, :_destroy])
     end
 end
