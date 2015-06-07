@@ -15,7 +15,7 @@
 										<img src="http://www.gli.government.bg/captcha/server.php?v=603ba83bba10e1f3f61eda01589e6bcc" width="120" height="30" alt="CAPTCHA">									
 								<% end %>
 								<label><%= field.name %></label>
-								<% if field.name_attribute == 'address' %>
+								<% if field.name_attribute == 'employer_location' %>
 									<input type="text" class="form-control" name=<%= "#{field.name_attribute}" %> required="required" id="map_address ">
 								<% else %>
 									<input type="text" class="form-control" name=<%= "#{field.name_attribute}" %> required="required" />
@@ -24,7 +24,7 @@
 							<% elsif field.field_type == 'textarea' %>
 								<label><%= field.name %></label>
 								<span class="glyphicon glyphicon-asterisk"></span>
-								<% if field.name_attribute == 'address' %>
+								<% if field.name_attribute == 'employer_location' %>
 									<textarea class="form-control" rows="5" id="map_address" name=<%= "#{field.name_attribute}" %> ></textarea>
 								<% else %>
 									<textarea class="form-control" rows="5" name=<%= "#{field.name_attribute}" %> ></textarea>

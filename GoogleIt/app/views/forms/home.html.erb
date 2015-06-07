@@ -63,8 +63,7 @@
                         <a href="#about">Относно</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#login" data-toggle="modal"
-                        onclick="document.body.style.paddingRight='0px'">Влез</a>
+                        <%= link_to "Влез", new_user_session_path %>
                     </li>                    
                     <li class="page-scroll">
                         <%= link_to "Регистрирай се", new_user_registration_path %>
