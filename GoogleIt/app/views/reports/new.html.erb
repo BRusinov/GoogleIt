@@ -1,0 +1,26 @@
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<%= form_for @report do |f| %>
+  <% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :report_fields do |r| %>
+      <%= render 'report_field_fields', f: r %>
+  <% end %>
+  <div class="links">
+      <%= link_to_add_association 'add field', f, :report_fields %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

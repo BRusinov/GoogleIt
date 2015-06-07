@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   root 'forms#home'
 
+  # get 'users/sign_up' as aign_up
+
 end

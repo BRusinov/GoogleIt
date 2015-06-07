@@ -1,0 +1,4 @@
+<% @r = Report.find(params[:id])%>
+<% @r.fields.each_with_index do |field, i| %>
+	<p><%= field.name %> -> <%= @r.report_fields[i].value %></p>
+<% end %>

@@ -1,0 +1,2 @@
+module LandingPageControllerHelper
+end
