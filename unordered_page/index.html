@@ -63,11 +63,10 @@
                         <a href="#about">Относно</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#login" data-toggle="modal"
-                        onclick="document.body.style.paddingRight='0px'">Влез</a>
+                        <a href="register.html">Регистрация</a>
                     </li>                    
                     <li class="page-scroll">
-                        <a href="#register" data-toggle="modal">Регистрирай се</a>
+                        <a href="#login" data-toggle="modal">Влез</a>
                     </li>                
                 </ul>
             </div>
@@ -158,8 +157,92 @@
             </div>
         </div>
     </section>
+<!-->
+	<section id="register">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Регистрация</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
 
-
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="Въведете своят email address" id="email" required data-validation-required-message="Въведете валиден email address!">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Въведете своята парола" id="phone" required data-validation-required-message="Въведете валидна парола!">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Въведете отново своята парола" id="phone" required data-validation-required-message="Въведете валидна парола!">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>                        
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Регистрирай се</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-->
+	<section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Влез</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="Въведете своят email address" id="email" required data-validation-required-message="Въведете валиден email address!">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Въведете своята парола" id="phone" required data-validation-required-message="Въведете валидна парола!">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>                        
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Влез</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="text-center">
@@ -293,6 +376,7 @@
         </div>
     </div>
 
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -313,133 +397,8 @@
 
 
     <!-- Button HTML (to Trigger Modal) -->
-    
+   
     <!-- Modal HTML -->
-    <div id="register" class="modal fade">
-        <div id="regModal" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Регистрация</h4>
-                </div>
-                <div class="modal-body">
-                    <form role="form" action="APB" method="post">
-
-                         <div class="form-group required">
-                            <label>Email</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="uLogin" required>
-                                <label for="uLogin" class="input-group-addon glyphicon glyphicon-envelope"></label>
-                            </div>
-                        </div> 
-
-                        <div class="form-group required col-lg-4">
-                            <label>Име</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="uLogin" required>
-                            </div>
-                        </div> 
-
-                        <div class="form-group required col-lg-4">
-                            <label>Презиме</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="uLogin" required>
-                            </div>
-                        </div> 
-
-                        <div class="form-group required col-lg-4">
-                            <label>Фамилия</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="uLogin" required>
-                            </div>
-                        </div> 
-
-                        <div class="form-group required">
-                            <label>Парола</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="uPassword" required>
-                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
-                            </div> 
-                        </div> 
-                        <div class="form-group">
-                            <label>Повтори парола</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="uPassword" required>
-                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
-                            </div> 
-                        </div> 
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Запомни ме
-                            </label>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
-                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-alert"></span> Регистрирай</button>
-                        </div>
-
-                        <script>
-                                $('#regModal').on('hidden.bs.modal', function () {
-                                    document.body.style.paddingRight='0px';
-                                });
-                        </script>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    <div id="login" class="modal fade">
-        <div class="modal-dialog" id="logModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Вход</h4>
-                </div>
-                <div class="modal-body">
-                    <form role="form" action="APB" method="post">
-
-                         <div class="form-group required">
-                            <label>Email</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="uLogin" required>
-                                <label for="uLogin" class="input-group-addon glyphicon glyphicon-envelope"></label>
-                            </div>
-                        </div> <!-- /.form-group -->
-
-                        <div class="form-group required">
-                            <label>Парола</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="uPassword" required>
-                                <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
-                            </div> <!-- /.input-group -->
-                        </div> <!-- /.form-group -->
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Запомни ме
-                            </label>
-                        </div> <!-- /.checkbox -->
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
-                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-alert"></span> Влез</button>
-                        </div>
-
-                        <script>
-                            $('#logModal').on('hidden.bs.modal', function () {
-                                document.body.style.paddingRight='0px';
-                            });
-                        </script>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> 
-</div>     
-
 
 </body>
 
