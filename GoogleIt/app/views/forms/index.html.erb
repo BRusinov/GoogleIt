@@ -14,8 +14,10 @@
       <tr>
         <td><%= form.title %></td>
         <td><%= link_to 'Show', form %></td>
-        <td><%= link_to 'Edit', edit_form_path(form) %></td>
-        <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user && current_user.admin %>
+          <td><%= link_to 'Edit', edit_form_path(form) %></td>
+          <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +25,10 @@
 
 <br>
 
+<% if current_user && current_user.admin %>
 <%= link_to 'New Form', new_form_path %>
+<% end %>
+
+<br>
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
