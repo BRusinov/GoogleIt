@@ -2,6 +2,7 @@ class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
 	def home
+    @resource = current_user
 	end
 
   # GET /forms

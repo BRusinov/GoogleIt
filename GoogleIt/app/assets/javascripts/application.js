@@ -90,3 +90,7 @@ function addFile(){
 	}
 }
 google.maps.event.addDomListener(window, 'load', initialize);
+
+function myfunc() {
+	alert("ahoy");
+}
